@@ -1,5 +1,8 @@
 <template>
-  <div id="demo" ref="self"></div>
+  <div
+    id="demo"
+    ref="self"
+  ></div>
 </template>
 
 <script setup>
@@ -23,7 +26,9 @@ const requestMicrophonePermission = async () => {
 
 onMounted(async () => {
   // load text from '/shader.frag'
-  const response = await fetch("/shader.frag");
+  const isDev = import.meta.env.DEV;
+  const fragFileUrl = isDev ? '/shader.frag' : '/demo-vjing/shader.frag';
+  const response = await fetch(fragFileUrl);
   const shaderFrag = await response.text();
 
   // AudioAnalyser

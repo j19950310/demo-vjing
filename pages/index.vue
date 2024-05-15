@@ -7,5 +7,6 @@ const route = useRoute()
 
 <template>
   <div>
+    <Demo></Demo>
   </div>
 </template>
